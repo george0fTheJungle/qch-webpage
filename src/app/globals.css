@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-cream: #F5F0EB;
+  --color-charcoal: #1C1C1C;
+  --color-brass: #B8976A;
+  --color-brass-light: #D4BA91;
+  --color-warm-gray: #8A8279;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-cormorant), "Georgia", serif;
 }
+
+.font-display {
+  font-family: var(--font-playfair), "Georgia", serif;
+}
+
+/* ── Scroll-reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.12s; }
+.reveal-d2 { transition-delay: 0.24s; }
+.reveal-d3 { transition-delay: 0.36s; }
+.reveal-d4 { transition-delay: 0.48s; }
+
+/* ── Hero entrance ── */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-in      { animation: heroIn 1.1s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
+.hero-in-d1   { animation: heroIn 1.1s cubic-bezier(0.22,1,0.36,1) 0.35s both; }
+.hero-in-d2   { animation: heroIn 1.1s cubic-bezier(0.22,1,0.36,1) 0.6s both; }
+.hero-in-d3   { animation: heroIn 1.1s cubic-bezier(0.22,1,0.36,1) 0.85s both; }
+
+/* ── Image normalization for phone photos ── */
+.img-norm {
+  filter: brightness(0.94) contrast(1.03) saturate(0.82);
+}
+
+/* ── Scroll-down pulse ── */
+@keyframes drift {
+  0%, 100% { opacity: 0.25; transform: scaleY(1); }
+  50%      { opacity: 0.7;  transform: scaleY(1.15); }
+}
+.scroll-drift { animation: drift 2.4s ease-in-out infinite; }
