@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Contact QCH Building Group | Northern Virginia Home Builder",
   description:
     "Contact QCH Building Group to start building your custom luxury home in Northern Virginia. Call 703-628-8988 or email info@qchbuild.com.",
+  alternates: { canonical: "https://www.qchbuild.com/contact" },
   openGraph: {
     title: "Contact QCH Building Group | Northern Virginia Home Builder",
     description:
