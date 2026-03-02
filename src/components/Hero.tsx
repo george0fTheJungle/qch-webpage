@@ -1,12 +1,17 @@
+import Image from "next/image";
+
 const HERO_IMG = { x: "50%", y: "50%", rotate: 0, scale: 1.03 };
 
 export default function Hero() {
   return (
     <section id="home" className="relative h-screen overflow-hidden">
-      <img
+      <Image
         src="/images/Foyer_edited_edited.png"
         alt="Grand foyer with dual staircases and ornate ironwork doors"
-        className="absolute inset-0 h-full w-full object-cover brightness-[0.28]"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover brightness-[0.28]"
         style={{ objectPosition: `${HERO_IMG.x} ${HERO_IMG.y}`, transform: `rotate(${HERO_IMG.rotate}deg) scale(${HERO_IMG.scale})` }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/5 to-black/60" />

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const PORTFOLIO = [
   { src: "/images/20220124_152656.jpg",                             label: "Gourmet Kitchen",    cls: "lg:col-span-2 lg:row-span-2", x: "50%", y: "50%", rotate: 0, scale: 1 },
   { src: "/images/3617%20Chain%20Bridge%20-%20Front%20-%20Left.jpg", label: "Custom Exterior",    cls: "",                            x: "50%", y: "50%", rotate: 0, scale: 1 },
@@ -30,10 +32,12 @@ export default function Portfolio() {
               key={img.src}
               className={`group relative cursor-pointer overflow-hidden ${img.cls}`}
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.label}
-                className="img-norm absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="img-norm object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 style={{ objectPosition: `${img.x} ${img.y}`, transform: `rotate(${img.rotate}deg) scale(${img.scale})` }}
               />
               <div className="absolute inset-0 bg-black/0 transition-all duration-500 group-hover:bg-black/40" />

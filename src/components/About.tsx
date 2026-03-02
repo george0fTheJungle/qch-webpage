@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const ABOUT_IMG = { x: "50%", y: "50%", rotate: 0, scale: 1 };
 
 export default function About() {
@@ -30,11 +32,13 @@ export default function About() {
           {/* image */}
           <div className="reveal reveal-d2 relative">
             <div className="absolute -bottom-3 -right-3 h-full w-full border border-brass/20 md:-bottom-4 md:-right-4" />
-            <div className="relative overflow-hidden">
-              <img
+            <div className="relative h-[380px] overflow-hidden md:h-[540px]">
+              <Image
                 src="/images/20200831_114817.jpg"
                 alt="Luxury living room with coffered ceiling and linear fireplace"
-                className="img-norm h-[380px] w-full object-cover md:h-[540px]"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="img-norm object-cover"
                 style={{ objectPosition: `${ABOUT_IMG.x} ${ABOUT_IMG.y}`, transform: `rotate(${ABOUT_IMG.rotate}deg) scale(${ABOUT_IMG.scale})` }}
               />
             </div>
